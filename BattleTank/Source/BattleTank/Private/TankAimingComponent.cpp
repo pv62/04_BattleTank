@@ -32,8 +32,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
 	(
 		this, OutLaunchVelocity, StartLocation, HitLocation, LaunchSpeed,
-		false, 0.f, 0.f, ESuggestProjVelocityTraceOption::DoNotTrace,
-		FCollisionResponseParams::DefaultResponseParam, ActorsToIgnore, true
+		false, 0.f, 0.f, ESuggestProjVelocityTraceOption::DoNotTrace//,
+	//	FCollisionResponseParams::DefaultResponseParam, ActorsToIgnore, true
 	);
 	if (bHaveAimSolution)
 	{
