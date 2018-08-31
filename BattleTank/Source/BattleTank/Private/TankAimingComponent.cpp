@@ -29,12 +29,11 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
-	//TArray<AActor*> ActorsToIgnore;
 	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity
 	(
 		this, OutLaunchVelocity, StartLocation, HitLocation, LaunchSpeed,
-		false, 0.f, 0.f, ESuggestProjVelocityTraceOption::DoNotTrace//,
-	//	FCollisionResponseParams::DefaultResponseParam, ActorsToIgnore, true
+		false, 0.f, 0.f, ESuggestProjVelocityTraceOption::DoNotTrace,
+		FCollisionResponseParams::DefaultResponseParam, TArray<AActor*>(), true
 	);
 	if (bHaveAimSolution)
 	{
