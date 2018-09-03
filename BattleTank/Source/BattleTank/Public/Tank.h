@@ -36,6 +36,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = Firing)
+	void Fire();
 	
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 100000.f; // TODO find sensible default
