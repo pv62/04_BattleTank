@@ -23,7 +23,13 @@ void UTankMovementComponent::IntendTurnRight(float Throw)
 	if (!LeftTrack || !RightTrack) { return; }
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
+}
 
-	//	auto Time = GetWorld()->GetTimeSeconds();
-	//	UE_LOG(LogTemp, Warning, TEXT("%f: Intend turn right throw: %f"), Time, Throw);
+void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, bool bForceMaxSpeed)
+{
+	// No need to call Super as we're replacing the functionality
+//	auto Time = GetWorld()->GetTimeSeconds();
+	auto TankName = GetOwner()->GetName();
+	auto MoveVelocityString = MoveVelocity.ToString();
+	UE_LOG(LogTemp, Warning, TEXT("%s vectoring to %s"), *TankName, *MoveVelocityString);
 }
