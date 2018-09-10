@@ -2,6 +2,7 @@
 
 #include "TankAIController.h"
 #include "Tank.h"
+// Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay()
 {
@@ -24,6 +25,6 @@ void ATankAIController::Tick(float DeltaTime)
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
 		// Fire if ready
-		ControlledTank->Fire(); // TODO Limit firing rate
+		ControlledTank->Fire();
 	}
 }

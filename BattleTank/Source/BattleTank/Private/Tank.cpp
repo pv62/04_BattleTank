@@ -2,7 +2,6 @@
 
 #include "Tank.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
 #include "Engine/World.h"
@@ -14,12 +13,6 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 
 	UE_LOG(LogTemp, Warning, TEXT("[%s] DONKEY: Tank C++ Constructor"), *GetName());
-}
-
-void ATank::SetBarrelandTurretReference(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
-{
-	TankAimingComponent->Initialize(BarrelToSet, TurretToSet);
-	Barrel = BarrelToSet;
 }
 
 // Called when the game starts or when spawned
