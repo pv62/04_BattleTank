@@ -10,6 +10,7 @@
 UENUM()
 enum class EFiringState : uint8
 {
+	OutOfAmmo,
 	Reloading,
 	Aiming,
 	Locked
@@ -38,6 +39,9 @@ public:
 
 	EFiringState GetFiringState() const;
 
+	UFUNCTION(BlueprintCallable, Category = "Firing")
+	int GetAmmo() const;
+
 	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
@@ -65,6 +69,8 @@ private:
 	float ReloadTimeInSeconds = 3;
 
 	double LastFireTime = 0;
+
+	int Ammo = 3;
 
 	FVector AimDirection;
 };
