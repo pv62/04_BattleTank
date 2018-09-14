@@ -20,8 +20,6 @@ void UTankTrack::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor, 
 	DriveTrack();
 	ApplySidewaysForce();
 	CurrentThrottle = 0;
-
-//	UE_LOG(LogTemp, Warning, TEXT("I'm hit"));
 }
 
 void UTankTrack::ApplySidewaysForce()
