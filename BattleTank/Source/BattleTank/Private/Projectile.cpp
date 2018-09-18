@@ -1,6 +1,7 @@
 // Copyright Pranav.
 
 #include "Projectile.h"
+#include "TimerManager.h"
 #include "Engine/World.h"
 
 // Sets default values
@@ -46,5 +47,15 @@ void AProjectile::OnHit(UPrimitiveComponent * HitComponent, AActor * OtherActor,
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
 	ExplosionForce->FireImpulse();
+
+	SetRootComponent(ImpactBlast);
+	CollisionMesh->DestroyComponent();
+
+	FTimerHandle Timer;
+	GetWorld()->GetTimerManager().SetTimer(Timer, this, &AProjectile::OnTimerExpire, DestroyDelay, false);
 }
 
+void AProjectile::OnTimerExpire()
+{
+	Destroy();
+}
