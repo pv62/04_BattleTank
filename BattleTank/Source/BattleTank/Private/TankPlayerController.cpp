@@ -29,7 +29,6 @@ void ATankPlayerController::AimTowardsCrosshair()
 	if (bGotHitLocation) // Has side-effect, is going to line trace
 	{
 		AimingComponent->AimAt(HitLocation);
-	//	UE_LOG(LogTemp, Warning, TEXT("Ammo: %s"), AimingComponent->GetAmmo());
 	}
 }
 
