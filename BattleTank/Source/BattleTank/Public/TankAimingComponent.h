@@ -52,7 +52,7 @@ protected:
 	EFiringState FiringState = EFiringState::Reloading;
 
 private:
-	void MoveBarrelTowards(FVector AimDirection);
+	void MoveBarrelTowards(FVector TargetAimDirection);
 
 	bool IsBarrelMoving();
 
