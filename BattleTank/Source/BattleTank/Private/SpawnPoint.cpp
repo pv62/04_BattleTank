@@ -3,6 +3,7 @@
 #include "SpawnPoint.h"
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
+#include "SprungWheel.h"
 
 // Sets default values for this component's properties
 USpawnPoint::USpawnPoint()
@@ -27,5 +28,10 @@ void USpawnPoint::BeginPlay()
 void USpawnPoint::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+}
+
+AActor* USpawnPoint::GetSpawnedActor() const
+{
+	return SpawnedActor;
 }
 
