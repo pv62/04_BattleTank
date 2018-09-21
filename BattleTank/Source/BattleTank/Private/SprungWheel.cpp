@@ -34,7 +34,6 @@ void ASprungWheel::BeginPlay()
 void ASprungWheel::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//	UE_LOG(LogTemp, Warning, TEXT("Not Null: %s"), *GetAttachParentActor()->GetName());
 }
 
 void ASprungWheel::AddDrivingForce(float ForceMagnitude)
