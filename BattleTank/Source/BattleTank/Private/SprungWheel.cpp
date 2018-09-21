@@ -37,6 +37,11 @@ void ASprungWheel::Tick(float DeltaTime)
 	//	UE_LOG(LogTemp, Warning, TEXT("Not Null: %s"), *GetAttachParentActor()->GetName());
 }
 
+void ASprungWheel::AddDrivingForce(float ForceMagnitude)
+{
+	Wheel->AddForce(Axle->GetForwardVector() * ForceMagnitude);
+}
+
 void ASprungWheel::SetupConstraint()
 {
 	if (!GetAttachParentActor()) { return; }
