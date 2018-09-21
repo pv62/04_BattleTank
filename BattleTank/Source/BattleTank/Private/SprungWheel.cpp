@@ -10,11 +10,11 @@ ASprungWheel::ASprungWheel()
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.TickGroup = TG_PostPhysics;
 
-	BodyAxleConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>(FName("BodyAxleConstraint"));
-	SetRootComponent(BodyAxleConstraint);
+	MassWheelConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>(FName("MassWheelConstraint"));
+	SetRootComponent(MassWheelConstraint);
 
 	Axle = CreateDefaultSubobject<USphereComponent>(FName("Axle"));
-	Axle->SetupAttachment(BodyAxleConstraint);
+	Axle->SetupAttachment(MassWheelConstraint);
 
 	Wheel = CreateDefaultSubobject<USphereComponent>(FName("Wheel"));
 	Wheel->SetupAttachment(Axle);
@@ -55,7 +55,7 @@ void ASprungWheel::SetupConstraint()
 	if (!GetAttachParentActor()) { return; }
 	UPrimitiveComponent* BodyRoot = Cast<UPrimitiveComponent>(GetAttachParentActor()->GetRootComponent());
 	if (!BodyRoot) { return; }
-	BodyAxleConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Axle, NAME_None);
+	MassWheelConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Axle, NAME_None);
 	AxleWheelConstraint->SetConstrainedComponents(Axle, NAME_None, Wheel, NAME_None);
 }
 

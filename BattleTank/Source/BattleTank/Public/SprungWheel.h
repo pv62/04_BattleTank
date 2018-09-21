@@ -43,7 +43,7 @@ private:
 	USphereComponent* Wheel = nullptr;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UPhysicsConstraintComponent* BodyAxleConstraint = nullptr;
+	UPhysicsConstraintComponent* MassWheelConstraint = nullptr;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
